@@ -1,0 +1,54 @@
+.sidenav-container {
+  display: flex;
+  height: 100%;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
+
+.app-sidenav {
+  width: 250px;
+}
+
+.menu-list a.mat-list-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.custom-list-item {
+  margin-left: 10px;
+  color: #ffffff; /* Color blanco */
+}
+
+::ng-deep .specific-class > .mat-expansion-indicator:after {
+  color: white;
+}
+
+.mat-sidenav-content {
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) { /* Cambiar el diseño para dispositivos móviles */
+  .mat-sidenav {
+    width: 80%; /* Ancho del sidenav en dispositivos móviles */
+  }
+
+  .app-sidenav {
+    display: block; /* Mostrar el sidenav en dispositivos móviles */
+  }
+}
+
+/* Ocultar el contenido en pantallas pequeñas */
+@media screen and (max-width: 599px) {
+  .user-info {
+    display: none;
+  }
+}

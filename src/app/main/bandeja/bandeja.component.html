@@ -1,0 +1,85 @@
+<!-- formulario-reactivo.component.html -->
+<div class="col-12">
+    <h1>Bandeja Manual - Emisión</h1>
+  </div>
+  <div class="col-12">
+    <form [formGroup]="formulario" class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <div class="col-fixed field">
+            <mat-form-field>
+              <mat-label>Cliente</mat-label>
+              <input matInput formControlName="cliente" />
+            </mat-form-field>
+          </div>
+
+          <div class="col-fixed field">
+            <mat-form-field style="width: 440px;">
+              <input matInput formControlName="clienteSearch" />
+              <button mat-icon-button matSuffix>
+                <mat-icon>person_search</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+
+          <div class="col-fixed field">
+            <mat-form-field>
+              <mat-label>Segmento</mat-label>
+              <input matInput formControlName="segmento" />
+            </mat-form-field>
+          </div>
+          
+          <div class="col-fixed field">
+            <mat-form-field>
+              <mat-label>Sub Seg.</mat-label>
+              <input matInput formControlName="subSegmento" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <div class="col-fixed field">
+            <mat-form-field>
+              <mat-label>Tipo/CD</mat-label>
+              <input matInput formControlName="tipoCd" />
+            </mat-form-field>
+          </div>
+          <div class="col-fixed field">
+            <mat-form-field>
+              <input matInput formControlName="tipoCdSearch" />
+            </mat-form-field>
+          </div>
+          <div class="col-fixed field">
+            <mat-form-field>
+              <mat-label>Tipo/CD Padre</mat-label>
+              <input matInput formControlName="tipoCdPadre" />
+            </mat-form-field>
+          </div>
+          <div class="col-fixed field">
+            <mat-form-field>
+              <mat-label>Tipo/CD Padre Search</mat-label>
+              <input matInput formControlName="tipoCdPadreSearch" />
+            </mat-form-field>
+          </div>
+          <div class="col-fixed field">
+            <mat-form-field>
+              <mat-label>Tipo Prod</mat-label>
+              <input matInput formControlName="tipoProd" />
+            </mat-form-field>
+          </div>
+          <div class="col-fixed field">
+            <mat-form-field>
+              <mat-label>Producto</mat-label>
+              <input matInput formControlName="producto" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button mat-raised-button color="primary">Enviar</button>
+      </div>
+    </form>
+  </div>
