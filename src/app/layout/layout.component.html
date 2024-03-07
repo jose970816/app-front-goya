@@ -56,7 +56,10 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar
+      color="primary"
+      style="position: sticky; z-index: 1000; top: 0"
+    >
       <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
         <mat-icon>menu</mat-icon>
       </button>
@@ -99,7 +102,7 @@
 
     <mat-toolbar
       color="primary"
-      style="height: 32px; background-color: #019df4; top: 64px"
+      style="height: 45px; background-color: #019df4"
     >
       <xng-breadcrumb [autoGenerate]="false">
         <ng-container *xngBreadcrumbItem="let breadcrumb">
@@ -108,6 +111,8 @@
       </xng-breadcrumb>
     </mat-toolbar>
 
-    <router-outlet></router-outlet>
+    <div class="example-container mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

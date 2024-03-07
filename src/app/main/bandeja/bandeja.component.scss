@@ -1,18 +1,9 @@
-.field {
-  flex: 1; /* Para que los campos ocupen el mismo espacio */
-}
-
 .example-container {
-  display: flex;
-  flex-direction: column;
   margin: 8px;
   min-width: 300px;
-}
+  display: flex;
+  flex-direction: column;
 
-.form-container {
-  width: 100%;
-  max-width: 600px; /* Opcional: ajusta el ancho máximo según tus necesidades */
-  margin: auto; /* Centra el formulario horizontalmente */
 }
 
 .form-row {
@@ -23,20 +14,17 @@
 }
 
 .form-field {
-  flex: 1; /* Los campos de formulario ocupan el mismo ancho */
+  width: calc(25% - 10px); /* Establece el ancho de cada campo de formulario al 25% del contenedor */
   margin-right: 10px; /* Espacio entre campos */
+  flex: 1; /* Los campos de formulario ocupan el mismo ancho */
 }
 
 .hidden {
   display: none;
 }
 
-table {
-  width: 100%;
-}
-
-tr.example-detail-row {
-  height: 0;
+.example-element-row {
+  cursor: pointer; /* Cambia puntero del mouse */
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
@@ -47,11 +35,10 @@ tr.example-element-row:not(.example-expanded-row):active {
   background: #efefef;
 }
 
-.example-element-row td {
-  border-bottom-width: 0;
+.mat-table-container {
+  overflow-x: auto; /* Agrega desplazamiento horizontal cuando el contenido excede el ancho */
 }
 
-.example-element-detail {
-  overflow: hidden;
-  display: flex;
+table {
+  width: 100%;
 }

@@ -1,14 +1,12 @@
 <div class="example-container">
-  <h1>Bandeja Manual - Emisión</h1>
-
-  <form [formGroup]="formulario" class="form">
+  <form [formGroup]="formulario">
     <div class="form-row">
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Cliente</mat-label>
         <input matInput placeholder="Cliente" formControlName="cliente" />
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Cliente Search</mat-label>
         <input matInput formControlName="clienteSearch" />
         <button mat-icon-button matSuffix>
@@ -16,7 +14,7 @@
         </button>
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Segmento</mat-label>
         <mat-select placeholder="Segmento" formControlName="segmento">
           <mat-option *ngFor="let segment of listSegments" [value]="segment">
@@ -25,7 +23,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Sub Seg.</mat-label>
         <mat-select placeholder="Sub Seg." formControlName="subSegmento">
           <mat-option
@@ -39,7 +37,7 @@
     </div>
 
     <div class="form-row">
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Tipo/CD</mat-label>
         <mat-select placeholder="Tipo/CD" formControlName="tipoCd">
           <mat-option *ngFor="let type of listCdTypes" [value]="type">
@@ -48,12 +46,12 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Tipo/CD Search</mat-label>
         <input matInput formControlName="tipoCdSearch" />
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Tipo/CD Padre</mat-label>
         <mat-select placeholder="Tipo/CD Padre" formControlName="tipoCdPadre">
           <mat-option *ngFor="let type of listParentCdTypes" [value]="type">
@@ -62,12 +60,12 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Tipo/CD Padre Search</mat-label>
         <input matInput formControlName="tipoCdPadreSearch" />
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Tipo Prod</mat-label>
         <mat-select placeholder="Tipo Prod" formControlName="tipoProd">
           <mat-option *ngFor="let type of listProductTypes" [value]="type">
@@ -76,7 +74,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Producto</mat-label>
         <mat-select placeholder="Producto" formControlName="producto">
           <mat-option *ngFor="let type of listProducts" [value]="type">
@@ -87,7 +85,7 @@
     </div>
 
     <div class="form-row">
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Requerimiento</mat-label>
         <input
           matInput
@@ -96,7 +94,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Requerimiento Asoc.</mat-label>
         <input
           matInput
@@ -105,19 +103,19 @@
         />
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>OS</mat-label>
         <input matInput placeholder="OS" formControlName="os" />
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Proyecto</mat-label>
         <input matInput placeholder="Proyecto" formControlName="proyecto" />
       </mat-form-field>
     </div>
 
     <div class="form-row">
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Estacion</mat-label>
         <mat-select placeholder="Estacion">
           <mat-option *ngFor="let type of listStations" [value]="type">
@@ -126,7 +124,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field color="primary">
+      <mat-form-field color="primary" class="form-field">
         <mat-label>Fecha Inicio</mat-label>
         <input matInput [matDatepicker]="startDate" />
         <mat-datepicker-toggle
@@ -136,7 +134,7 @@
         <mat-datepicker #startDate color="primary"></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field color="primary">
+      <mat-form-field color="primary" class="form-field">
         <mat-label>Fecha Fin</mat-label>
         <input matInput [matDatepicker]="endDate" />
         <mat-datepicker-toggle
@@ -146,7 +144,7 @@
         <mat-datepicker #endDate color="primary"></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field class="field">
+      <mat-form-field class="form-field">
         <mat-label>Tipo Accion</mat-label>
         <mat-select placeholder="Tipo Accion">
           <mat-option *ngFor="let type of listTypesActions" [value]="type">
@@ -170,8 +168,16 @@
       >Incidentes</mat-button-toggle
     >
 
-    <div [hidden]="selectedTab != 'taskTab'" class="mat-elevation-z8">
-      <table mat-table [dataSource]="taskDataSource" matSort #taskSort="matSort">
+    <div
+      [hidden]="selectedTab != 'taskTab'"
+      class="mat-elevation-z2 mat-table-container"
+    >
+      <table
+        mat-table
+        [dataSource]="taskDataSource"
+        matSort
+        #taskSort="matSort"
+      >
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
           <td mat-cell *matCellDef="let element">{{ element.id }}</td>
@@ -230,70 +236,76 @@
       ></mat-paginator>
     </div>
 
-    <div [hidden]="selectedTab != 'incidentsTab'" class="mat-elevation-z8">
-      <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="incidentsDataSource" matSort #incidentsSort="matSort">
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-          </ng-container>
-          <ng-container matColumnDef="estacion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Estacion</th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.estacion }}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="requerimiento">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              Requerimiento
-            </th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.requerimiento }}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="tipoCd">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo CD</th>
-            <td mat-cell *matCellDef="let element">{{ element.tipoCd }}</td>
-          </ng-container>
-          <ng-container matColumnDef="cd">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>CD</th>
-            <td mat-cell *matCellDef="let element">{{ element.cd }}</td>
-          </ng-container>
-          <ng-container matColumnDef="cliente">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
-            <td mat-cell *matCellDef="let element">{{ element.cliente }}</td>
-          </ng-container>
-          <ng-container matColumnDef="tipo">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
-            <td mat-cell *matCellDef="let element">{{ element.tipo }}</td>
-          </ng-container>
-          <ng-container matColumnDef="producto">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Producto</th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.producto }}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="accion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Accion</th>
-            <td mat-cell *matCellDef="let element">{{ element.accion }}</td>
-          </ng-container>
+    <div
+      [hidden]="selectedTab != 'incidentsTab'"
+      class="mat-elevation-z2 mat-table-container"
+    >
+      <table
+        mat-table
+        [dataSource]="incidentsDataSource"
+        matSort
+        #incidentsSort="matSort"
+      >
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="estacion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Estacion</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.estacion }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="requerimiento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Requerimiento
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.requerimiento }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="tipoCd">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo CD</th>
+          <td mat-cell *matCellDef="let element">{{ element.tipoCd }}</td>
+        </ng-container>
+        <ng-container matColumnDef="cd">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>CD</th>
+          <td mat-cell *matCellDef="let element">{{ element.cd }}</td>
+        </ng-container>
+        <ng-container matColumnDef="cliente">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
+          <td mat-cell *matCellDef="let element">{{ element.cliente }}</td>
+        </ng-container>
+        <ng-container matColumnDef="tipo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+          <td mat-cell *matCellDef="let element">{{ element.tipo }}</td>
+        </ng-container>
+        <ng-container matColumnDef="producto">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Producto</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.producto }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="accion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Accion</th>
+          <td mat-cell *matCellDef="let element">{{ element.accion }}</td>
+        </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="incidentsDisplayedColumns"></tr>
-          <tr
-            mat-row
-            *matRowDef="let row; columns: incidentsDisplayedColumns"
-            class="example-element-row"
-          ></tr>
-        </table>
+        <tr mat-header-row *matHeaderRowDef="incidentsDisplayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: incidentsDisplayedColumns"
+          class="example-element-row"
+        ></tr>
+      </table>
 
-        <mat-paginator
-          #incidentsPaginator
-          [pageSize]="5"
-          [length]="numberIncidents"
-          [pageSizeOptions]="[5, 10, 25, 100]"
-          showFirstLastButtons
-        ></mat-paginator>
-      </div>
+      <mat-paginator
+        #incidentsPaginator
+        [pageSize]="5"
+        [length]="numberIncidents"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        showFirstLastButtons
+      ></mat-paginator>
     </div>
   </form>
 </div>
