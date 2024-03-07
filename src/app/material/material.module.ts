@@ -20,7 +20,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { MatPaginatorImpl } from './mat-paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [],
@@ -50,8 +56,14 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
+    MatDatepickerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+
   ],
   providers: [
+    { provide: MatPaginatorIntl, useClass: MatPaginatorImpl },
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
   ]
 })

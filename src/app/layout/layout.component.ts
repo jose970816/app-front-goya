@@ -1,15 +1,16 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { filter, map, mergeMap, shareReplay } from 'rxjs/operators';
 import { MenuItem } from '../shared/menu';
- 
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
 })
-export class LayoutComponent{
+export class LayoutComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
 
   menuItems: MenuItem[] = [
@@ -17,13 +18,20 @@ export class LayoutComponent{
       name: 'Dashboard',
       icon: 'dashboard',
       link: '/pages/dashboard',
-      children: []
+      children: [],
     },
     {
       name: 'Mi Bandeja',
       icon: 'mark_email_unread',
       link: '/pages/bandeja',
-      children: []
+      children: [
+        {
+          name: 'Bandeja de tareas',
+          icon: 'email',
+          link: '/pages/bandeja/bandeja-tareas',
+          children: [],
+        },
+      ],
     },
     {
       name: 'Distribucion Carga',
@@ -33,52 +41,59 @@ export class LayoutComponent{
           name: 'Spring',
           icon: 'cloud',
           link: '/spring',
-          children: []
+          children: [],
         },
         {
           name: 'Hibernate',
           icon: 'storage',
           link: '/hibernate',
-          children: []
+          children: [],
         },
         {
           name: 'Struts',
           icon: 'settings_input_svideo',
           link: '/struts',
-          children: []
-        }
-      ]
+          children: [],
+        },
+      ],
     },
     {
       name: 'Consultas',
       icon: 'manage_search',
       link: '/consultas',
-      children: []
+      children: [],
     },
     {
       name: 'Tracking',
       icon: 'monitor_heart',
       link: '/tracking',
-      children: []
+      children: [],
     },
     {
       name: 'Administracion',
       icon: 'settings_applications',
       link: '/administracion',
-      children: []
+      children: [],
     },
   ];
-  
+
+  ngOnInit() {
+  }
+
   step = 0;
 
   setStep(index: number) {
     this.step = index;
   }
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map((result) => result.matches),
       shareReplay()
     );
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
 }

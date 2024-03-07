@@ -1,0 +1,57 @@
+.field {
+  flex: 1; /* Para que los campos ocupen el mismo espacio */
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  min-width: 300px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 600px; /* Opcional: ajusta el ancho máximo según tus necesidades */
+  margin: auto; /* Centra el formulario horizontalmente */
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las filas se envuelvan a una nueva línea si no hay suficiente espacio */
+  margin-bottom: 10px; /* Espacio entre filas */
+  gap: 10px;
+}
+
+.form-field {
+  flex: 1; /* Los campos de formulario ocupan el mismo ancho */
+  margin-right: 10px; /* Espacio entre campos */
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}

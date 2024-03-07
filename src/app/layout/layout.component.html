@@ -19,43 +19,43 @@
     </mat-toolbar>
 
     <mat-nav-list class="menu-list">
-      <ng-container *ngFor="let item of menuItems; let i = index">
+      <ng-container *ngFor="let menu of menuItems; let i = index">
         <!-- Verifica si el elemento tiene submenús -->
-        <ng-container *ngIf="item.children && item.children.length > 0">
+        <ng-container *ngIf="menu.children && menu.children.length > 0">
           <mat-expansion-panel
             [class.mat-elevation-z0]="true"
             style="background-color: #00517a; color: #fff"
             [expanded]="step === i"
             (opened)="setStep(i)"
-            [hideToggle]="!item.children || item.children.length === 0"
+            [hideToggle]="!menu.children || menu.children.length === 0"
           >
             <mat-expansion-panel-header class="specific-class">
-              <mat-icon style="color: #fff">{{ item.icon }}</mat-icon>
-              <span>{{ item.name }}</span>
+              <mat-icon style="color: #fff">{{ menu.icon }}</mat-icon>
+              <span>{{ menu.name }}</span>
             </mat-expansion-panel-header>
-            <mat-list-item
-              *ngFor="let child of item.children"
-              routerLink={{child.link}}
-            >
-              <mat-icon>{{ child.icon }}</mat-icon>
-              <span>{{ child.name }}</span>
-            </mat-list-item>
+
+            <mat-list *ngFor="let submenu of menu.children">
+              <mat-list-item routerLink="{{ submenu.link }}">
+                <mat-icon>{{ submenu.icon }}</mat-icon>
+                <span>{{ submenu.name }}</span>
+              </mat-list-item>
+            </mat-list>
           </mat-expansion-panel>
         </ng-container>
         <!-- Si el elemento no tiene submenús, muestra un mat-list-item regular -->
-        <ng-container *ngIf="!item.children || item.children.length === 0">
-          <mat-list-item routerLink={{item.link}}>
+        <mat-list *ngIf="!menu.children || menu.children.length === 0">
+          <mat-list-item routerLink="{{ menu.link }}">
             <div style="margin-left: 10px">
-              <mat-icon style="color: #fff">{{ item.icon }}</mat-icon>
-              <span style="color: #fff">{{ item.name }}</span>
+              <mat-icon style="color: #fff">{{ menu.icon }}</mat-icon>
+              <span style="color: #fff">{{ menu.name }}</span>
             </div>
           </mat-list-item>
-        </ng-container>
+        </mat-list>
       </ng-container>
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content class="content">
+  <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
         <mat-icon>menu</mat-icon>
@@ -79,6 +79,7 @@
       >
         <mat-icon>more_vert</mat-icon>
       </button>
+
       <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
         <button mat-menu-item routerLink="#">
           <mat-icon>person</mat-icon><span>Mi perfil</span>
@@ -94,6 +95,17 @@
           <mat-icon>exit_to_app</mat-icon>Cerrar sesion
         </button>
       </mat-menu>
+    </mat-toolbar>
+
+    <mat-toolbar
+      color="primary"
+      style="height: 32px; background-color: #019df4; top: 64px"
+    >
+      <xng-breadcrumb [autoGenerate]="false">
+        <ng-container *xngBreadcrumbItem="let breadcrumb">
+          <b>{{ breadcrumb }}</b>
+        </ng-container>
+      </xng-breadcrumb>
     </mat-toolbar>
 
     <router-outlet></router-outlet>

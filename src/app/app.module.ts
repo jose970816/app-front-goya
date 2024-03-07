@@ -29,12 +29,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatNativeDateModule } from '@angular/material/core';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +64,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
+    BreadcrumbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
