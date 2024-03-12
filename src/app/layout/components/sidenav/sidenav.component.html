@@ -1,0 +1,39 @@
+<mat-sidenav #sidenav mode="side" class="app-sidenav" [opened]="isSidenavOpen" style="background-color: #00517a">
+    <mat-toolbar style="display: flex; align-items: center; justify-content: center">
+      <div>
+        <img src="assets/images/logo_movistar.png" alt="Logo" style="max-width: 100%; height: 64px" />
+      </div>
+    </mat-toolbar>
+  
+    <mat-nav-list class="menu-list">
+      <ng-container *ngFor="let menu of menuItems; let i = index">
+        <!-- Verifica si el elemento tiene submenús -->
+        <ng-container *ngIf="menu.children && menu.children.length > 0">
+          <mat-expansion-panel [class.mat-elevation-z0]="true" style="background-color: #00517a; color: #fff"
+            [expanded]="step === i" (opened)="setStep(i)" [hideToggle]="!menu.children || menu.children.length === 0">
+            <mat-expansion-panel-header class="specific-class">
+              <mat-icon style="color: #fff">{{ menu.icon }}</mat-icon>
+              <span>{{ menu.name }}</span>
+            </mat-expansion-panel-header>
+  
+            <mat-list *ngFor="let submenu of menu.children">
+              <mat-list-item routerLink="{{ submenu.link }}">
+                <mat-icon>{{ submenu.icon }}</mat-icon>
+                <span>{{ submenu.name }}</span>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+        </ng-container>
+        <!-- Si el elemento no tiene submenús, muestra un mat-list-item regular -->
+        <mat-list *ngIf="!menu.children || menu.children.length === 0">
+          <mat-list-item routerLink="{{ menu.link }}">
+            <div style="margin-left: 10px">
+              <mat-icon style="color: #fff">{{ menu.icon }}</mat-icon>
+              <span style="color: #fff">{{ menu.name }}</span>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  

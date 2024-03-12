@@ -1,0 +1,10 @@
+/* Ocultar el contenido en pantallas pequeñas */
+@media screen and (max-width: 599px) {
+  .user-info {
+    display: none;
+  }
+}
+
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}

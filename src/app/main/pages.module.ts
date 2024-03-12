@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PagesRoutingModule } from './pages-routing.module';
 import { LayoutComponent } from '../layout/layout.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [

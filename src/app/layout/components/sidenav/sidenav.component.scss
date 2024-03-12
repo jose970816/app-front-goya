@@ -1,0 +1,33 @@
+.sidenav-container {
+  display: flex;
+  height: 100%;
+}
+
+.mat-sidenav-content {
+  flex-grow: 1;
+}
+
+.menu-list a.mat-list-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+::ng-deep .specific-class > .mat-expansion-indicator:after {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  /* Cambiar el diseño para dispositivos móviles */
+  .mat-sidenav {
+    width: 80%; /* Ancho del sidenav en dispositivos móviles */
+  }
+
+  .app-sidenav {
+    display: block; /* Mostrar el sidenav en dispositivos móviles */
+  }
+}
+
+.app-sidenav {
+  width: 250px;
+}
