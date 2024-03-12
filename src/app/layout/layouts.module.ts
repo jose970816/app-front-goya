@@ -8,6 +8,8 @@ import { MaterialModule } from '../material/material.module';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
+import { PagesRoutingModule } from '../main/pages-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     MaterialModule,
     BreadcrumbModule,
+    PagesRoutingModule,
   ]
 })
 export class LayoutsModule { }
