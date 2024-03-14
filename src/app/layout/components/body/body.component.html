@@ -1,12 +1,3 @@
-<mat-toolbar color="primary" style="height: 45px; background-color: #019df4">
-    <xng-breadcrumb [autoGenerate]="false">
-      <ng-container *xngBreadcrumbItem="let breadcrumb">
-        <b>{{ breadcrumb }}</b>
-      </ng-container>
-    </xng-breadcrumb>
-  </mat-toolbar>
-  
-  <div class="example-container mat-elevation-z8">
-    <router-outlet></router-outlet>
-  </div>
-  
+<div class="mat-elevation-z8 main contents">
+  <router-outlet></router-outlet>
+</div>

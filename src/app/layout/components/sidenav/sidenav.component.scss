@@ -13,6 +13,10 @@
   height: 40px;
 }
 
+.app-sidenav {
+  width: 250px;
+}
+
 ::ng-deep .specific-class > .mat-expansion-indicator:after {
   color: white;
 }
@@ -26,8 +30,4 @@
   .app-sidenav {
     display: block; /* Mostrar el sidenav en dispositivos móviles */
   }
-}
-
-.app-sidenav {
-  width: 250px;
 }

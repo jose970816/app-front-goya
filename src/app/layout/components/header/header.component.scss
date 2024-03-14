@@ -1,3 +1,18 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.main.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  border-bottom: 1px solid #ccc;
+}
+
 /* Ocultar el contenido en pantallas pequeñas */
 @media screen and (max-width: 599px) {
   .user-info {

@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Observable, map, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +8,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
   @Output() toggleSidenav = new EventEmitter<void>();
 
-  sendToggleSidenav(){
+  constructor() { }
+
+  onToggleSidenav(): void {
     this.toggleSidenav.emit();
   }
+  
 }
