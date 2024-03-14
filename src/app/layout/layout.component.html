@@ -1,8 +1,10 @@
-<mat-sidenav-container class="sidenav-container">
-  <app-sidenav #sidenav ></app-sidenav>
+<mat-drawer-container [class.drawer-opened]="isSidenavOpen">
+  <app-header (toggleSidenav)="toggleSidenav()"></app-header>
 
-  <mat-sidenav-content>
-    <app-header (toggleSidenav)="toggleSidenav()"></app-header>
-    <app-body></app-body>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-drawer #drawer class="drawer" mode="side" style="background-color: #00517a">
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+
+  <app-body></app-body>
+
+</mat-drawer-container>

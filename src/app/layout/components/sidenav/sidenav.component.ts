@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, inject } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
+import { Observable, map, shareReplay } from 'rxjs';
 import { MenuItem } from 'src/app/shared/menu';
 
 @Component({
@@ -7,7 +10,8 @@ import { MenuItem } from 'src/app/shared/menu';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent {
-  
+  private breakpointObserver = inject(BreakpointObserver);
+
   menuItems: MenuItem[] = [
     {
       name: 'Dashboard',
@@ -73,9 +77,31 @@ export class SidenavComponent {
   ];
   
   @Input() step?: number;
-  @Input() isSidenavOpen?: boolean;
-
+  @Input() isSidenavOpen?: boolean = true;
+  
   setStep(index: number) {
     this.step = index;
   }
+
+  @Output() closeSidenav: EventEmitter<void> = new EventEmitter<void>();
+
+  onCloseSidenav(): void {
+    this.closeSidenav.emit();
+  }
+  /*
+  @Input() step?: number;
+  
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  @Input() menuItems!: MenuItem[];
+
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );*/
+
 }

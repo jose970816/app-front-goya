@@ -1,35 +1,44 @@
-<mat-toolbar color="primary" style="position: sticky; z-index: 1000; top: 0">
-    <button mat-icon-button (click)="sendToggleSidenav()" matTooltip="Menu">
+<div class="main header">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="onToggleSidenav()" matTooltip="Menu">
       <mat-icon>menu</mat-icon>
     </button>
     <span>GOYA+</span>
     <span class="toolbar-item-spacer"></span>
-  
-    <mat-icon style="margin-right: 10px" class="user-info">account_circle</mat-icon>
-    <div style="text-align: center" class="user-info">
-      <span>Jose Miguel Sosa</span>
-      <br />
-      <span>Administrador</span>
+    <div class="toolbar-content">
+      <mat-icon style="margin-right: 10px">account_circle</mat-icon>
+      <div style="text-align: center">
+        <span>Jose Miguel Sosa</span>
+        <br />
+        <span>Administrador</span>
+      </div>
+
+      <button mat-icon-button matTooltip="Mi perfil" [matMenuTriggerFor]="userAccountMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #userAccountMenu [overlapTrigger]="false">
+        <button mat-menu-item routerLink="#">
+          <mat-icon>person</mat-icon><span>Mi perfil</span>
+        </button>
+        <button mat-menu-item routerLink="#">
+          <mat-icon>settings</mat-icon><span>Configuracion</span>
+        </button>
+        <button mat-menu-item routerLink="#">
+          <mat-icon>help</mat-icon><span>Ayuda</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="#">
+          <mat-icon>exit_to_app</mat-icon>Cerrar sesion
+        </button>
+      </mat-menu>
     </div>
-  
-    <button mat-icon-button matTooltip="Mi perfil" [matMenuTriggerFor]="userAccountMenu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-  
-    <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
-      <button mat-menu-item routerLink="#">
-        <mat-icon>person</mat-icon><span>Mi perfil</span>
-      </button>
-      <button mat-menu-item routerLink="#">
-        <mat-icon>settings</mat-icon><span>Configuracion</span>
-      </button>
-      <button mat-menu-item routerLink="#">
-        <mat-icon>help</mat-icon><span>Ayuda</span>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item routerLink="#">
-        <mat-icon>exit_to_app</mat-icon>Cerrar sesion
-      </button>
-    </mat-menu>
   </mat-toolbar>
-  
+
+  <mat-toolbar color="primary" style="background-color: #019df4">
+    <xng-breadcrumb [autoGenerate]="false">
+      <ng-container *xngBreadcrumbItem="let breadcrumb">
+        <b>{{ breadcrumb }}</b>
+      </ng-container>
+    </xng-breadcrumb>
+  </mat-toolbar>
+</div>
