@@ -13,13 +13,6 @@
   border-bottom: 1px solid #ccc;
 }
 
-/* Estilos para el contenido de la barra de herramientas */
-.toolbar-content {
-  //position: fixed;
-  display: flex;
-  align-items: center;
-}
-
 /* Ocultar el contenido en pantallas pequeñas */
 @media screen and (max-width: 599px) {
   .user-info {
